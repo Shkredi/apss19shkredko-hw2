@@ -6,13 +6,19 @@ import static org.junit.Assert.*;
 
 public class ImmutableLinkedListTest {
 
-    private ImmutableLinkedList empty_list, list, one_list;
+    private ImmutableLinkedList empty_list, list, one_list, empty_list2;
 
     @Before
     public void setUp() throws Exception {
         empty_list = new ImmutableLinkedList();
         list = new ImmutableLinkedList(new Object[]{1, "abc", 2.5, 'd'});
         one_list = new ImmutableLinkedList(new Object[]{3});
+        empty_list2 = new ImmutableLinkedList(new Object[]{});
+    }
+
+    @Test
+    public void construct(){
+        assertArrayEquals(empty_list.toArray(), empty_list2.toArray());
     }
 
     @Test
