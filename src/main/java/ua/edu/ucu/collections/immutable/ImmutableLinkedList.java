@@ -55,14 +55,8 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     // робить копію зв'язного списку
-    private static ImmutableLinkedList copyOf(ImmutableLinkedList list) {
-        return ImmutableLinkedList.copyOf(list, 0, list.size);
-    }
-
-    // робить копію зв'язного списку
-    private static ImmutableLinkedList copyOf(ImmutableLinkedList list,
-                                              int indexL, int indexR) {
-        return new ImmutableLinkedList(list.toArray(indexL, indexR));
+    private static ImmutableLinkedList copyOf(ImmutableLinkedList list) {        
+        return new ImmutableLinkedList(list.toArray());
     }
 
     //додає елемент у початок зв'язаного списку
@@ -256,17 +250,9 @@ public class ImmutableLinkedList implements ImmutableList {
     //перетворює колекцію до масиву обєктів
     @Override
     public Object[] toArray() {
-        return this.toArray(0, this.size);
-    }
-
-    //перетворює колекцію до масиву обєктів
-    private Object[] toArray(int indexL, int indexR) {
-        if (indexL < 0 || indexR > this.size || indexL > indexR) {
-            throw new IndexOutOfBoundsException();
-        }
-        Object[] arr = new Object[indexR - indexL];
+        Object[] arr = new Object[this.size];
         Node node = this.head;
-        for (int i = indexL; i < indexR; i++) {
+        for (int i = 0; i < this.size; i++) {
             arr[i] = node.val;
             node = node.next;
         }
