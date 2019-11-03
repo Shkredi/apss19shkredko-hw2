@@ -23,7 +23,7 @@ public class ImmutableArrayList implements ImmutableList {
         return this.add(this.size, e);
     }
 
-    //додає елемент до колекції за індексом, та кидає виключну ситуацію,
+    // додає елемент до колекції за індексом, та кидає виключну ситуацію,
     // якщо індекс виходить за межі колекції
     @Override
     public ImmutableList add(int index, Object e) {
