@@ -128,7 +128,12 @@ public class ImmutableLinkedListTest {
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void get2() {
-        assertEquals("abc", empty_list.get(1) );
+        empty_list.get(1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void get3() {
+        list.get(-5);
     }
 
     @Test
@@ -141,6 +146,11 @@ public class ImmutableLinkedListTest {
         list.remove(5);
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void remove3() {
+        list.remove(-2);
+    }
+
     @Test
     public void set1() {
         assertArrayEquals(new Object[]{1, "c", 2.5, 'd'}, list.set(1, "c").toArray());
@@ -149,6 +159,12 @@ public class ImmutableLinkedListTest {
     @Test(expected = IndexOutOfBoundsException.class)
     public void set2() {
         list.set(6, "q");
+    }
+
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void set3() {
+        list.set(-3, "q");
     }
 
     @Test

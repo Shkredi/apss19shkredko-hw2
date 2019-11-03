@@ -9,14 +9,10 @@ public class ImmutableLinkedList implements ImmutableList {
         private Node prev;
         private Node next;
 
-        private Node(Object val, Node prev, Node next){
+        private Node(Object val, Node prev, Node next) {
             this.val = val;
             this.prev = prev;
             this.next = next;
-        }
-
-        private Node() {
-            this(null, null, null);
         }
 
         private Node(Object val) {
