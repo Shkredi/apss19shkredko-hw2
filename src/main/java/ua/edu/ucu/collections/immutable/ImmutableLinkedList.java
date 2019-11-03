@@ -55,7 +55,7 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     // робить копію зв'язного списку
-    private static ImmutableLinkedList copyOf(ImmutableLinkedList list) {        
+    private static ImmutableLinkedList copyOf(ImmutableLinkedList list) { 
         return new ImmutableLinkedList(list.toArray());
     }
 
