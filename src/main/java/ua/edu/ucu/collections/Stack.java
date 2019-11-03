@@ -6,21 +6,21 @@ public class Stack {
 
     private ImmutableLinkedList list;
 
-    public Stack(){
+    public Stack() {
         this.list = new ImmutableLinkedList();
     }
 
     // Returns the object from the top of the Stack without removing it
-    public Object peek(){
-        if (this.isEmpty()){
+    public Object peek() {
+        if (this.isEmpty()) {
             throw new IndexOutOfBoundsException();
         }
         return this.list.getFirst();
     }
 
     // Removes and returns the object from the top of the Stack
-    public Object pop(){
-        if (this.isEmpty()){
+    public Object pop() {
+        if (this.isEmpty()) {
             throw new IndexOutOfBoundsException();
         }
         Object e = this.list.getFirst();
@@ -29,11 +29,11 @@ public class Stack {
     }
 
     // Adds an object to the the top of the Stack.
-    public void push(Object e){
+    public void push(Object e) {
         this.list = this.list.addFirst(e);
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return this.list.size() == 0;
     }
 
