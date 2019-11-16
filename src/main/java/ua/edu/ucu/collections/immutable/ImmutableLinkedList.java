@@ -135,27 +135,27 @@ public class ImmutableLinkedList implements ImmutableList {
 
     //додає елемент у кінець колекції
     @Override
-    public ImmutableList add(Object e) {
+    public ImmutableLinkedList add(Object e) {
         return this.add(this.size, e);
     }
 
     //додає елемент до колекції за індексом, та кидає виключну ситуацію,
     // якщо індекс виходить за межі колекції
     @Override
-    public ImmutableList add(int index, Object e) {
+    public ImmutableLinkedList add(int index, Object e) {
         return this.addAll(index, new Object[]{e});
     }
 
     //додає масив елементів у кінець колекції
     @Override
-    public ImmutableList addAll(Object[] c) {
+    public ImmutableLinkedList addAll(Object[] c) {
         return this.addAll(this.size, c);
     }
 
     // додає масив елементів починаючи з зазначеного індекса, та кидає
     // виключну ситуацію, якщо індекс виходить за межі колекції
     @Override
-    public ImmutableList addAll(int index, Object[] c) {
+    public ImmutableLinkedList addAll(int index, Object[] c) {
         if (index < 0 || index > this.size) {
             throw new IndexOutOfBoundsException();
         }
@@ -187,7 +187,7 @@ public class ImmutableLinkedList implements ImmutableList {
     //видаляє елемент за індексом, та кидає виключну ситуацію, якщо індекс
     // виходить за межі колекції
     @Override
-    public ImmutableList remove(int index) {
+    public ImmutableLinkedList remove(int index) {
         if (index < 0 || index >= this.size) {
             throw new IndexOutOfBoundsException();
         }
@@ -202,7 +202,7 @@ public class ImmutableLinkedList implements ImmutableList {
     //змінює значення елементу за індексом, та кидає виключну ситуацію,
     // якщо індекс виходить за межі колекції
     @Override
-    public ImmutableList set(int index, Object e) {
+        public ImmutableLinkedList set(int index, Object e) {
         if (index < 0 || index >= this.size) {
             throw new IndexOutOfBoundsException();
         }
@@ -221,7 +221,7 @@ public class ImmutableLinkedList implements ImmutableList {
     public int indexOf(Object e) {
         Node node = this.head;
         for (int i = 0; i < this.size; i++) {
-            if (node.val == e) {
+            if (node.val.equals(e)) {
                 return i;
             }
             node = node.next;
@@ -237,7 +237,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     //очищує вміст колекції
     @Override
-    public ImmutableList clear() {
+    public ImmutableLinkedList clear() {
         return new ImmutableLinkedList();
     }
 

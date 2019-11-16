@@ -19,27 +19,27 @@ public class ImmutableArrayList implements ImmutableList {
 
     //додає елемент у кінець колекції
     @Override
-    public ImmutableList add(Object e) {
+    public ImmutableArrayList add(Object e) {
         return this.add(this.size, e);
     }
 
     // додає елемент до колекції за індексом, та кидає виключну ситуацію,
     // якщо індекс виходить за межі колекції
     @Override
-    public ImmutableList add(int index, Object e) {
+    public ImmutableArrayList add(int index, Object e) {
         return this.addAll(index, new Object[]{e});
     }
 
     //додає масив елементів у кінець колекції
     @Override
-    public ImmutableList addAll(Object[] c) {
+    public ImmutableArrayList addAll(Object[] c) {
         return this.addAll(this.size, c);
     }
 
     // додає масив елементів починаючи з зазначеного індекса, та кидає виключну
     // ситуацію, якщо індекс виходить за межі колекції
     @Override
-    public ImmutableList addAll(int index, Object[] c) {
+    public ImmutableArrayList addAll(int index, Object[] c) {
         if (index < 0 || index > this.size) {
             throw new IndexOutOfBoundsException();
         }
@@ -66,7 +66,7 @@ public class ImmutableArrayList implements ImmutableList {
     //видаляє елемент за індексом, та кидає виключну ситуацію, якщо індекс
     // виходить за межі колекції
     @Override
-    public ImmutableList remove(int index) {
+    public ImmutableArrayList remove(int index) {
         if (index < 0 || index >= this.size) {
             throw new IndexOutOfBoundsException();
         }
@@ -80,7 +80,7 @@ public class ImmutableArrayList implements ImmutableList {
     //змінює значення елементу за індексом, та кидає виключну ситуацію,
     // якщо індекс виходить за межі колекції
     @Override
-    public ImmutableList set(int index, Object e) {
+    public ImmutableArrayList set(int index, Object e) {
         if (index < 0 || index >= this.size) {
             throw new IndexOutOfBoundsException();
         }
@@ -97,7 +97,7 @@ public class ImmutableArrayList implements ImmutableList {
     @Override
     public int indexOf(Object e) {
         for (int i = 0; i < this.size; i++) {
-            if (this.arr[i] == e) {
+            if (this.arr[i].equals(e)) {
                 return i;
             }
         }
@@ -112,7 +112,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     //очищує вміст колекції
     @Override
-    public ImmutableList clear() {
+    public ImmutableArrayList clear() {
         return new ImmutableArrayList();
     }
 
